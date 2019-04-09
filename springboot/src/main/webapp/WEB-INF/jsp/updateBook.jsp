@@ -5,6 +5,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
     <style type="text/css">
@@ -18,10 +21,11 @@
 <body>
 <div id="body">
     <div style="margin: 0px auto; width: 500px;">
-        <form action="updateBook.do" id="forms" method="post">
+        <form action="updateBookInfo.do" id="forms" method="post">
             <table border="1px" style="text-align: center;">
                 <tr>
-                    <<input type="hidden" name="bookId" value="${bookInfo.bookId}">
+                    <input type="hidden" name="bookId" value="${bookInfo.bookId}">
+                    <<input type="hidden" name="isBorrow" value="${bookInfo.isBorrow}">
                     <td>图书编号</td>
                     <td><input id="code" name="bookCode" value="${bookInfo.bookCode}"><span
                             id="codeMessage"></span></td>

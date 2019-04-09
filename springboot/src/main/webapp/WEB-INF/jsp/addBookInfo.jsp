@@ -52,13 +52,15 @@
                 <tr>
                     <td>图片上传</td>
                     <td><img id="img" src="">
-                        <input type="file"name="fileImage" onchange="uploadImage()"></td>
+                        <input type="file" name="fileImage" onchange="uploadImage()">
+                    </td>
                     <input type="hidden" value="" id="path" name="bookPath">
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="提交"> <input
                             type="button" value="取消"></td>
                 </tr>
+
             </table>
         </form>
     </div>
@@ -66,12 +68,13 @@
 
 </div>
 </body>
-<script src="../../resource/js/jquery-2.1.4-baidu.js"></script>
+<script src="../../resource/js/jquery_2.1.4_baidu_min.js"></script>
 <script src="../../resource/js/jquery-form.js"></script>
 <script >
+
     function uploadImage(){
         var obj={
-            url:"fileImage.do",
+            url:"uploadImage.do",
             type:"post",
             dataType:"json",
             success:function(data){

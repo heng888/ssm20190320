@@ -21,6 +21,24 @@ public class BookInfo {
 
     private String bookPath;
 
+    private BookType bookTypes;
+
+    public BookInfo() {
+    }
+
+    public BookInfo(Integer bookId, String bookCode, String bookName, Integer bookType, String bookAuthor, String publishPress, Date publishDate, Integer isBorrow, String bookPath, BookType bookTypes) {
+        this.bookId = bookId;
+        this.bookCode = bookCode;
+        this.bookName = bookName;
+        this.bookType = bookType;
+        this.bookAuthor = bookAuthor;
+        this.publishPress = publishPress;
+        this.publishDate = publishDate;
+        this.isBorrow = isBorrow;
+        this.bookPath = bookPath;
+        this.bookTypes = bookTypes;
+    }
+
     public Integer getBookId() {
         return bookId;
     }
@@ -91,5 +109,29 @@ public class BookInfo {
 
     public void setBookPath(String bookPath) {
         this.bookPath = bookPath == null ? null : bookPath.trim();
+    }
+
+    public BookType getBookTypes() {
+        return bookTypes;
+    }
+
+    public void setBookTypes(BookType bookTypes) {
+        this.bookTypes = bookTypes;
+    }
+
+    @Override
+    public String toString() {
+        return "BookInfo{" +
+                "bookId=" + bookId +
+                ", bookCode='" + bookCode + '\'' +
+                ", bookName='" + bookName + '\'' +
+                ", bookType=" + bookType +
+                ", bookAuthor='" + bookAuthor + '\'' +
+                ", publishPress='" + publishPress + '\'' +
+                ", publishDate=" + publishDate +
+                ", isBorrow=" + isBorrow +
+                ", bookPath='" + bookPath + '\'' +
+                ", bookTypes=" + bookTypes +
+                '}';
     }
 }

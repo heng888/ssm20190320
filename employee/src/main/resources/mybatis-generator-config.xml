@@ -24,7 +24,7 @@
         </javaTypeResolver>
 
         <!-- 4targetProject:生成PO类的位置 -->
-        <javaModelGenerator targetPackage="com.example.demo.po"
+        <javaModelGenerator targetPackage="com.employee.po"
                             targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
@@ -35,14 +35,14 @@
            如果maven工程只是单独的一个工程，targetProject="src/main/java"
            若果maven工程是分模块的工程，targetProject="所属模块的名称"，例如：
            targetProject="ecps-manager-mapper"，下同-->
-        <sqlMapGenerator targetPackage="com.example.demo.dao"
+        <sqlMapGenerator targetPackage="com.employee.dao"
                          targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
         <!-- 6targetPackage：mapper接口生成的位置 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.example.demo.dao"
+                             targetPackage="com.employee.dao"
                              targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
@@ -56,15 +56,15 @@
         >
             <property name="modelOnly" value="false" />
         </table>
-        <table
-                tableName="dept"
-                enableCountByExample="false"
-                enableDeleteByExample="false"
-                enableSelectByExample="true"
-                enableUpdateByExample="false"
-        >
-            <property name="modelOnly" value="false" />
-        </table>
+        <!--<table-->
+                <!--tableName="dept"-->
+                <!--enableCountByExample="false"-->
+                <!--enableDeleteByExample="false"-->
+                <!--enableSelectByExample="true"-->
+                <!--enableUpdateByExample="false"-->
+        <!--&gt;-->
+            <!--<property name="modelOnly" value="false" />-->
+        <!--</table>-->
         <!--example:https://blog.csdn.net/sinat_30474567/article/details/72625651-->
     </context>
 </generatorConfiguration>

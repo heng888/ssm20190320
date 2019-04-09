@@ -11,6 +11,10 @@
     <result column="publish_date" property="publishDate" jdbcType="TIMESTAMP" />
     <result column="is_borrow" property="isBorrow" jdbcType="INTEGER" />
     <result column="book_path" property="bookPath" jdbcType="VARCHAR" />
+    <association property="bookTypes" javaType="BookType">
+      <id column="type_id" property="typeId" jdbcType="INTEGER" />
+      <result column="type_name" property="typeName" jdbcType="VARCHAR" />
+    </association>
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,9 +69,37 @@
     from book_info
     where book_id = #{bookId,jdbcType=INTEGER}
   </select>
+  <select id="selectAllBookInfo" resultMap="BaseResultMap">
+    select * from book_info i
+    join book_type t on i.book_type=t.type_id
+    <where>
+      <if test="book_type != 0">
+        book_type=#{book_type}
+      </if>
+      <if test="book_name!=null">
+        and book_name like concat('%',#{book_name},'%')
+      </if>
+      <if test="is_borrow !=-1">
+        and is_borrow=#{is_borrow}
+      </if>
+    </where>
+  </select>
+  <select id="selectBookInfoDetails" resultMap="BaseResultMap">
+    select * from book_info i
+    join book_type t
+    on i.book_type=t.type_id
+    where i.book_id=#{book_id}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from book_info
     where book_id = #{bookId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteBookInfo" >
+    delete from book_info
+    where book_id in
+    <foreach collection="array" open="(" separator="," close=")" item="id">
+      #{id}
+    </foreach>
   </delete>
   <insert id="insert" parameterType="com.nuesoft.po.BookInfo" >
     insert into book_info (book_id, book_code, book_name, 

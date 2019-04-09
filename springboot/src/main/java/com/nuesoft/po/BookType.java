@@ -5,6 +5,22 @@ public class BookType {
 
     private String typeName;
 
+    public BookType() {
+    }
+
+    public BookType(Integer typeId, String typeName) {
+        this.typeId = typeId;
+        this.typeName = typeName;
+    }
+
+    @Override
+    public String toString() {
+        return "BookType{" +
+                "typeId=" + typeId +
+                ", typeName='" + typeName + '\'' +
+                '}';
+    }
+
     public Integer getTypeId() {
         return typeId;
     }
